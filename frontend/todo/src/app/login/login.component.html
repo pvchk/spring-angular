@@ -1,3 +1,6 @@
-User Name: <input type="text" name="login" id="login-field">
-Password: <input type="password" name="password" id="password-field">
-<button id="login-button">Login</button>
+User Name: <input type="text" name="username" id="login-field" [(ngModel)]="username" >
+Password: <input type="password" name="password" id="password-field" [(ngModel)]="password">
+
+User name: {{username}}
+
+<button (click)="handleLogin()" id="login-button">Login</button>
