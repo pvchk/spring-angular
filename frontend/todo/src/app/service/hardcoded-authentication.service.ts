@@ -10,9 +10,15 @@ export class HardcodedAuthenticationService {
 
   authenticate(username, password) {
     if (username === 'username' && password === '1111') {
+      sessionStorage.setItem('authenticater', username);
       return true;
     } else {
       return false;
     }
+  }
+
+  isUserLoggedIn() {
+    const user = sessionStorage.getItem('authenticater');
+    return !(user === null);
   }
 }
