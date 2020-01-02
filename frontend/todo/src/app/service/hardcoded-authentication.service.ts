@@ -10,7 +10,7 @@ export class HardcodedAuthenticationService {
 
   authenticate(username, password) {
     if (username === 'username' && password === '1111') {
-      sessionStorage.setItem('authenticater', username);
+      sessionStorage.setItem('authenticator', username);
       return true;
     } else {
       return false;
@@ -18,7 +18,11 @@ export class HardcodedAuthenticationService {
   }
 
   isUserLoggedIn() {
-    const user = sessionStorage.getItem('authenticater');
+    const user = sessionStorage.getItem('authenticator');
     return !(user === null);
+  }
+
+  logout() {
+    sessionStorage.removeItem('authenticator');
   }
 }
