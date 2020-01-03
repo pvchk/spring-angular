@@ -2,11 +2,11 @@
 <div class="container">
   <fieldset>
     <label>Description</label>
-    <input class="form-control" type="text" name="description" required="required">
+    <input [(ngModel)]="todo.description" class="form-control" name="description" required="required">
   </fieldset>
   <fieldset>
     <label>Target Date</label>
-    <input class="form-control" type="date" name="targetdate" required="required">
+    <input [(ngModel)]="todo.targetDate" class="form-control" type="date" name="targetdate" required="required">
   </fieldset>
-  <button class="btn" (click)="saveTodo()">Save</button>
+  <button class="btn btn-success" (click)="saveTodo()">Save</button>
 </div>
