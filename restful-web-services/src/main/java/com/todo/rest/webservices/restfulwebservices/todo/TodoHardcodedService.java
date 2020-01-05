@@ -16,33 +16,20 @@ public class TodoHardcodedService {
         todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about microservices", new Date(), false));
         todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
         todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
     }
 
     public List<Todo> findAll() {
         return todos;
+    }
+
+    public Todo save(Todo todo) {
+        if (todo.getId() == -1) {
+            todos.add(todo);
+        } else {
+            deleteById(todo.getId());
+            todos.add(todo);
+        }
+        return todo;
     }
 
     public Todo deleteById(long id) {
