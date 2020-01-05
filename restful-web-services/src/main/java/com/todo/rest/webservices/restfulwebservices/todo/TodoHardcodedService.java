@@ -23,7 +23,7 @@ public class TodoHardcodedService {
     }
 
     public Todo save(Todo todo) {
-        if (todo.getId() == -1) {
+        if (todo.getId() == -1 || todo.getId() == 0) {
             todos.add(todo);
         } else {
             deleteById(todo.getId());
