@@ -58,7 +58,7 @@ public class Todo {
         isDone = done;
     }
 
-    public Todo() {
+    protected Todo() {
     }
 
     @Override
