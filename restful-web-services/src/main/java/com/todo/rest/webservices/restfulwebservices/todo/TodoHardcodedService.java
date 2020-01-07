@@ -1,6 +1,7 @@
 package com.todo.rest.webservices.restfulwebservices.todo;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,10 +13,9 @@ public class TodoHardcodedService {
     private static int idCounter = 0;
 
     static {
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn to code", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about microservices", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "hardcodedUsername", "Learn about Angular", new Date(), false));
+        todos.add(new Todo(++idCounter, "username", "Learn to code", new Date(), false));
+        todos.add(new Todo(++idCounter, "username", "Learn about microservices", new Date(), false));
+        todos.add(new Todo(++idCounter, "username", "Learn about Angular", new Date(), false));
     }
 
     public List<Todo> findAll() {
@@ -24,6 +24,7 @@ public class TodoHardcodedService {
 
     public Todo save(Todo todo) {
         if (todo.getId() == -1 || todo.getId() == 0) {
+            todo.setId(++idCounter);
             todos.add(todo);
         } else {
             deleteById(todo.getId());
