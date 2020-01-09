@@ -18,21 +18,11 @@ export class WelcomeDataService {
     return this.httpClient.get<HelloWorldBean>(`http://localhost:8080/hello-world-bean`);
   }
 
-  executeHelloWorldBeanServiceWithPathVariable(name) {
-    const basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-    const headers = new HttpHeaders(
-      {
-        Authorization: basicAuthHeaderString
-      }
-    );
-    return this.httpClient.get<HelloWorldBean>(`http://localhost:8080/welcome/${name}`, {headers});
-  }
+  executeHelloWorldServiceWithPathVariable(name) {
 
-  createBasicAuthenticationHttpHeader() {
-    const username = 'pyavchik';
-    const password = '1111';
-    const basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
-    return basicAuthHeaderString;
+    return this.httpClient.get<HelloWorldBean>(
+      `http://localhost:8080/hello-world/path-variable/${name}`,
+    );
   }
 }
 
