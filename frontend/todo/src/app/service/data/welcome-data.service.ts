@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {API_URL} from '../../app.constants';
 
 export class HelloWorldBean {
   constructor(public message: string) {
@@ -15,13 +16,13 @@ export class WelcomeDataService {
   }
 
   executeHelloWorldBeanService() {
-    return this.httpClient.get<HelloWorldBean>(`http://localhost:8080/hello-world-bean`);
+    return this.httpClient.get<HelloWorldBean>(`${API_URL}/hello-world-bean`);
   }
 
   executeHelloWorldServiceWithPathVariable(name) {
 
     return this.httpClient.get<HelloWorldBean>(
-      `http://localhost:8080/hello-world/path-variable/${name}`,
+      `${API_URL}/hello-world/path-variable/${name}`,
     );
   }
 }
