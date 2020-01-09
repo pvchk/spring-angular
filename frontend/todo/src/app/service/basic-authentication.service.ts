@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {HelloWorldBean} from './data/welcome-data.service';
 import {map} from 'rxjs/operators';
 
 @Injectable({
@@ -9,15 +8,6 @@ import {map} from 'rxjs/operators';
 export class BasicAuthenticationService {
 
   constructor(private httpClient: HttpClient) {
-  }
-
-  authenticate(username, password) {
-    if (username === 'pyavchik' && password === '1111') {
-      sessionStorage.setItem('authenticator', username);
-      return true;
-    } else {
-      return false;
-    }
   }
 
   executeAuthenticationService(username, password) {
@@ -32,12 +22,22 @@ export class BasicAuthenticationService {
       map(
         data => {
           sessionStorage.setItem('authenticator', username);
+          sessionStorage.setItem('token', basicAuthHeaderString);
           return data;
         }
       )
     );
   }
 
+  getAuthenticatedUser() {
+    return sessionStorage.getItem('authenticator');
+  }
+
+  getAuthenticatedToken() {
+    if (this.getAuthenticatedUser()) {
+      return sessionStorage.getItem('token');
+    }
+  }
 
   isUserLoggedIn() {
     const user = sessionStorage.getItem('authenticator');
@@ -46,6 +46,7 @@ export class BasicAuthenticationService {
 
   logout() {
     sessionStorage.removeItem('authenticator');
+    sessionStorage.removeItem('token');
   }
 }
 
