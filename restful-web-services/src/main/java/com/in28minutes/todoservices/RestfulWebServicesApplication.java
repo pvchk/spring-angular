@@ -1,4 +1,4 @@
-package com.todo.rest.webservices.restfulwebservices;
+package com.in28minutes.todoservices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
