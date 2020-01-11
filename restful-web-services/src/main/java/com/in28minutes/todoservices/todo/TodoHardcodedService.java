@@ -1,7 +1,6 @@
-package com.todo.rest.webservices.restfulwebservices.todo;
+package com.in28minutes.todoservices.todo;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.ArrayList;
 import java.util.Date;
