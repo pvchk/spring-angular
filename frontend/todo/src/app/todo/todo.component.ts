@@ -23,7 +23,7 @@ export class TodoComponent implements OnInit {
     this.todo = new Todo(this.id, '', false, new Date());
     // tslint:disable-next-line:triple-equals
     if (this.id != -1) {
-      this.todoService.retrieveTodo('username', this.id).subscribe(
+      this.todoService.retrieveTodo('in28minutes', this.id).subscribe(
         data => this.todo = data
       );
     }
@@ -32,7 +32,7 @@ export class TodoComponent implements OnInit {
   saveTodo() {
     // tslint:disable-next-line:triple-equals
     if (this.id == -1) {
-      this.todoService.createTodo('username', this.todo).subscribe(
+      this.todoService.createTodo('in28minutes', this.todo).subscribe(
         data => {
           console.log(data);
           this.router.navigate(['todos']);
@@ -40,7 +40,7 @@ export class TodoComponent implements OnInit {
       );
 
     } else {
-      this.todoService.updateTodo('username', this.id, this.todo).subscribe(
+      this.todoService.updateTodo('in28minutes', this.id, this.todo).subscribe(
         data => {
           console.log(data);
           this.router.navigate(['todos']);
